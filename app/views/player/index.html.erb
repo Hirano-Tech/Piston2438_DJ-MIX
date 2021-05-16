@@ -1,0 +1,5 @@
+<header id='Header' class='container'>
+  <%= @music.name %>
+
+  <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/#{@music.s3_key}", controls: true, autoplay: false, onended: "location.href='/'; ") %>
+</header>
