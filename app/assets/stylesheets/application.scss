@@ -1,6 +1,38 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 
-#Header {
-  background-color: lightgray;
-  height: 100vh;
+body {
+  color: #333333;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 16px;
+
+  #Contents {
+    height: 100vh;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+
+    .Prayer {
+      background-color: lightgray;
+      margin: 0 auto;
+
+      &--Title {
+        font-size: 0.8rem;
+        margin: 0;
+      }
+
+      &--Date { margin: 0 0 8px; }
+
+      &--Image {
+        margin: 0 auto 8px;
+        display: block;
+      }
+
+      &--Audio {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  }
 }
