@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Music.create(
+  name: 'MIX MACHINE〈 2021年 05月 06日 木 〉',
+  s3_key: 'MIXMACHINE/MIX MACHINE〈 2021年 05月 06日 木 〉.flac',
+  release_date: '2021-05-06'
+)
+
+Music.create(
   name: 'MIX MACHINE〈 2021年 05月 13日 木 〉',
   s3_key: 'MIXMACHINE/MIX MACHINE〈 2021年 05月 13日 木 〉.flac',
   release_date: '2021-05-13'
