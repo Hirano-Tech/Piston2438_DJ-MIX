@@ -45,8 +45,12 @@ gem 'jquery-rails'
   # https://rubygems.org/gems/jquery-rails | RubyGems
   # Ruby on Rails 4.0 以降のための jQuery と jQuery-ujs ドライバを提供します。
 
+gem 'devise', '~> 4.8'
+  # https://rubygems.org/gems/jquery-rails | RubyGems
+  # Ruby on Rails のための認証ソリューション
+
 gem 'pry', '~> 0.14.1'
-  # https://rubygems.org/gems/pry | RubyGems
+  # https://rubygems.org/gems/devise | RubyGems
   # Irb の上位互換にあたるディベロッパーコンソール
 
 group :development, :test do
@@ -88,26 +92,6 @@ end
 
 group :production do
   gem 'unicorn', '~> 6.0'
+    # https://rubygems.org/gems/unicorn | RubyGems
+    # 低遅延・高帯域の接続で高速なクライアントにサービスを提供できる UNIX ライクな HTTP サーバ
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
