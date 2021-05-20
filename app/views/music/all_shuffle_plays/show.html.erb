@@ -1,0 +1,11 @@
+<section id='Contents' class='container'>
+  <div class='row'>
+    <div class='col-10 Prayer'>
+      <p class='Prayer--Title'>MIX MACHINE</p>
+      <p class='Prayer--Date'><%= @music.release_date.strftime('%Y年%m月%d日 %A') %></p>
+
+      <%= image_tag('https://due0xnee3ffkt.cloudfront.net/Images/GROOVE-LINE.webp', width: '75%', class: 'Prayer--Image') %>
+      <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/#{@music.s3_key}", controls: true, autoplay: true, class: 'Prayer--Audio', onended: "location.href='/music/all_shuffle_plays'; ") %>
+    </div>
+  </div>
+</section>
