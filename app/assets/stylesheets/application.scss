@@ -6,32 +6,78 @@ body {
   font-family: 'Sawarabi Mincho', sans-serif;
   font-size: 16px;
 
-  #Contents {
+  a {
+    &:hover { color: #333333; }
+    color: #333333;
+    text-decoration: none;
+  }
+
+  #Outer-Box {
     height: 100vh;
-    display: flex;
-      justify-content: center;
-      align-items: center;
+    position: relative;
 
-    .Prayer {
-      background-color: lightgray;
-      margin: 0 auto;
+    header {
+      height: 48px;
+      position: relative;
 
-      &--Title {
-        font-size: 0.8rem;
+      .Login_Btn {
+        width: 6.0em;
+        padding: 2px 4px;
+        display: block;
+        position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+      }
+    }
+
+    #Contents {
+      height: 100vh;
+      display: flex;
+        justify-content: center;
+        align-items: center;
+
+      .Prayer {
+        background-color: lightgray;
+        margin: 0 auto;
+
+        &--Title {
+          font-size: 0.8rem;
+          margin: 0;
+        }
+
+        &--Date { margin: 0 0 8px; }
+
+        &--Image {
+          margin: 0 auto 8px;
+          display: block;
+        }
+
+        &--Audio {
+          width: 100%;
+          margin: 0 auto;
+          display: block;
+        }
+      }
+    }
+
+    .Login_From {
+      position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+
+      &--Input { margin: 0 0 8px 20px; }
+      &--Check-Box { margin: 4px 0 0 20px; }
+      &--Label {
+        font-size: 0.9rem;
         margin: 0;
       }
 
-      &--Date { margin: 0 0 8px; }
-
-      &--Image {
-        margin: 0 auto 8px;
-        display: block;
-      }
-
-      &--Audio {
+      &--Submit {
         width: 100%;
-        margin: 0 auto;
-        display: block;
+        padding: 2px 4px;
+        margin: 4px 0 0 20px;
       }
     }
   }
