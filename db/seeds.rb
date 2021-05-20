@@ -1,3 +1,32 @@
+User.create(
+  email: 'Information@Hirano.Mail-Box.ne.jp',
+  password: 'BFjJW6xvC9SE',
+)
+
+Music.create(
+  name: 'MIX MACHINE〈 2021年 04月 12日 月 〉',
+  s3_key: 'MIXMACHINE/MIX MACHINE〈 2021年 04月 12日 月 〉.flac',
+  release_date: '2021-04-12'
+)
+
+Music.create(
+  name: 'MIX MACHINE〈 2021年 04月 13日 火 〉',
+  s3_key: 'MIXMACHINE/MIX MACHINE〈 2021年 04月 13日 火 〉.flac',
+  release_date: '2021-04-13'
+)
+
+Music.create(
+  name: 'MIX MACHINE〈 2021年 04月 14日 水 〉',
+  s3_key: 'MIXMACHINE/MIX MACHINE〈 2021年 04月 14日 水 〉.flac',
+  release_date: '2021-04-14'
+)
+
+Music.create(
+  name: 'MIX MACHINE〈 2021年 04月 15日 木 〉',
+  s3_key: 'MIXMACHINE/MIX MACHINE〈 2021年 04月 15日 木 〉.flac',
+  release_date: '2021-04-15'
+)
+
 Music.create(
   name: 'MIX MACHINE〈 2021年 04月 19日 月 〉',
   s3_key: 'MIXMACHINE/MIX MACHINE〈 2021年 04月 19日 月 〉.flac',
