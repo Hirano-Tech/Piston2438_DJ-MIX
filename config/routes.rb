@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'player#index'
+  devise_for :users
+  root to: 'music_players#index'
+
+  namespace :music do
+    resources :all_shuffle_plays, only: [:index, :show]
+  end
 end
