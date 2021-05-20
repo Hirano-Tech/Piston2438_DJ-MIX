@@ -1,0 +1,26 @@
+<section class='row'>
+  <div class='Login_From col-9'>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class='field'>
+        <%= f.label(:email, '● メールアドレス', class: 'Login_From--Label form-label') %><br />
+        <%= f.email_field(:email, class:'Login_From--Input form-control', autocomplete: 'off', required: true) %>
+      </div>
+
+      <div class='field'>
+        <%= f.label(:password, '● パスワード', class: 'Login_From--Label form-label')  %><br />
+        <%= f.password_field(:password, class:'Login_From--Input form-control', autocomplete: 'off', required: true) %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class='field'>
+          <%= f.check_box(:remember_me, class: 'Login_From--Check-Box form-check-input') %>
+          <%= f.label(:remember_me, 'ログイン状態を記憶する。', class: 'Login_From--Label form-check-label') %>
+        </div>
+      <% end %>
+
+      <div class='actions'>
+        <%= f.submit('ログイン', class: 'Login_From--Submit btn btn-outline-dark') %>
+      </div>
+    <% end %>
+  </div>
+</section>
