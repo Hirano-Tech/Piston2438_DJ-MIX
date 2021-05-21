@@ -32,14 +32,28 @@ body {
     }
 
     #Contents {
-      height: 100vh;
-      display: flex;
-        justify-content: center;
-        align-items: center;
+      height: calc(100vh - 48px);
+      position: relative;
+
+      .Music-Play {
+        position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateY(-50%) translateX(-50%);
+
+        &__Btn {
+          margin-bottom: 8px;
+          display: block;
+        }
+      }
 
       .Prayer {
         background-color: lightgray;
         margin: 0 auto;
+        position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateY(-50%) translateX(-50%);
 
         &--Title {
           font-size: 0.8rem;
