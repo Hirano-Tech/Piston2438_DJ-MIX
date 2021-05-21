@@ -15,7 +15,11 @@
     <section id='Outer-Box' class='container'>
       <header>
         <% if user_signed_in? %>
-          <%= link_to('ログアウト', destroy_user_session_path, method: :delete, class: 'Login_Btn btn btn-outline-dark') %>
+          <% if request.fullpath.include? '/music/all_shuffle_plays' %>
+            <%= link_to('ホーム', root_path, class: 'Login_Btn btn btn-outline-dark') %>
+          <% else %>
+            <%= link_to('ログアウト', destroy_user_session_path, method: :delete, class: 'Login_Btn btn btn-outline-dark') %>
+          <% end %>
         <% else %>
           <% if request.fullpath == '/users/sign_in' %>
             <%= link_to('ホーム', root_path, class: 'Login_Btn btn btn-outline-dark') %>
