@@ -10,16 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_124406) do
+ActiveRecord::Schema.define(version: 2021_05_21_150632) do
 
-  create_table "music_libraries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.string "category", null: false
-    t.string "s3_key", null: false
-    t.date "release_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["s3_key"], name: "index_music_libraries_on_s3_key", unique: true
+  end
+
+  create_table "grooveline_programs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "s3_key", null: false
+    t.date "release_date", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_grooveline_programs_on_category_id"
+    t.index ["s3_key"], name: "index_grooveline_programs_on_s3_key", unique: true
+  end
+
+  create_table "mixmachine_flac_djmixes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "title"
+    t.string "s3_key", null: false
+    t.date "release_date", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_mixmachine_flac_djmixes_on_category_id"
+    t.index ["s3_key"], name: "index_mixmachine_flac_djmixes_on_s3_key", unique: true
+  end
+
+  create_table "mixmachine_mp3_djmixes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "title"
+    t.string "s3_key", null: false
+    t.date "release_date", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_mixmachine_mp3_djmixes_on_category_id"
+    t.index ["s3_key"], name: "index_mixmachine_mp3_djmixes_on_s3_key", unique: true
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -34,4 +65,7 @@ ActiveRecord::Schema.define(version: 2021_05_20_124406) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "grooveline_programs", "categories"
+  add_foreign_key "mixmachine_flac_djmixes", "categories"
+  add_foreign_key "mixmachine_mp3_djmixes", "categories"
 end
