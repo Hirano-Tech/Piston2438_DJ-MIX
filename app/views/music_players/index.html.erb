@@ -1,6 +1,13 @@
 <section id='Contents' class='container'>
   <div class='Music-Play'>
-    <%= link_to('全曲シャッフル再生（モバイルデータ 用）', music_all_shuffle_play_path(@dj_all_mp3), class: 'Music-Play__Btn btn btn-outline-dark') %>
-    <%= link_to('全曲シャッフル再生（ロスレス再生 用）', music_all_shuffle_play_path(@dj_all_flac), class: 'Music-Play__Btn btn btn-outline-dark') %>
+    <%= form_with url: music_players_path, method: 'POST', local: true do |form| %>
+      <%= form.radio_button :category, 'MIX MACHINE（MP3）', class: 'form-check-input', id: 'Mobile_MP3' %>
+      <%= form.label :category, 'モバイルデータ通信（MP3）', class: 'form-check-label', for: 'Mobile_MP3' %>
+
+      <%= form.radio_button :category, 'MIX MACHINE（FLAC）', class: 'form-check-input', id: 'High-Quality_FLAC' %>
+      <%= form.label :category, '最高音質（FLAC）', class: 'form-check-label', for: 'High-Quality_FLAC' %>
+
+      <%= form.submit '音楽を再生する' %>
+    <% end %>
   </div>
 </section>
