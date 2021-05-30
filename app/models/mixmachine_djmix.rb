@@ -1,0 +1,2 @@
+class MixmachineDjmix < ApplicationRecord
+end
