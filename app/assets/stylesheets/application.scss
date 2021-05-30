@@ -7,9 +7,104 @@ body {
   font-size: 16px;
 
   a {
-    &:hover { color: #333333; }
     color: #333333;
     text-decoration: none;
+
+    &:hover {
+      color: #333333;
+      text-decoration: underline;
+    }
+  }
+
+  @mixin Title-Ribbon {
+    width: 75%;
+    font-size: 1.0rem;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+
+    &:before {
+      content: '';
+      border: 1em solid #ffffcc;
+      border-left-width: 15px;
+      border-left-color: transparent;
+      z-index: 0;
+      display: block;
+      position: absolute;
+        left: -21px;
+        bottom: -10px;
+    }
+
+    &:after {
+      content: '';
+      border: 1em solid #ffffcc;
+      border-right-width: 15px;
+      border-right-color: transparent;
+      z-index: 0;
+      display: block;
+      position: absolute;
+        right: -21px;
+        bottom: -10px;
+    }
+
+    span {
+      background-color: #ffffcc;
+      padding: 8px 0px;
+      z-index: 1;
+      display: block;
+      position: relative;
+
+      &:before {
+        content: '';
+        border-style: solid;
+        border-width: 10px 0 0 10px;
+        border-color: darken(#ffffcc, 25%) transparent transparent transparent;
+        display: block;
+        position: absolute;
+          bottom: -10px;
+      }
+
+      &:after {
+        content: '';
+        border-style: solid;
+        border-width: 10px 10px 0 0;
+        border-color: darken(#ffffcc, 25%) transparent transparent transparent;
+        display: block;
+        position: absolute;
+          right: 0;
+          bottom: -10px;
+      }
+    }
+  }
+
+  @mixin Category-Tag {
+    background: #ffcc99;
+    height: 0;
+    font-size: 0.8rem;
+    padding: 4px 8px 20px 12px;
+    margin: 18px 0 0 52px;
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      content: '';
+      border-style: solid;
+      border-width: 8px 12px 8px 0;
+      border-color: transparent #ffcc99 transparent transparent;
+      position: absolute;
+        left: -12px;
+    }
+
+    &:after {
+      content: '';
+      background: #ffffff;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      position: absolute;
+        top: calc(50% - 3px);
+        left: -3px;
+    }
   }
 
   #Outer-Box {
@@ -35,41 +130,60 @@ body {
       height: calc(100vh - 48px);
       position: relative;
 
-      .Music-Play {
+      .Mix-Machine {
+        &__Title { @include Title-Ribbon; }
+        &__Tag { @include Category-Tag; }
+        width: 100%;
         position: absolute;
           top: 50%;
           left: 50%;
           transform: translateY(-50%) translateX(-50%);
 
-        &__Btn {
-          margin-bottom: 8px;
-          display: block;
+        &__Form {
+          width: 75%;
+          font-size: 0.8rem;
+          margin: 16px auto 0;
+
+          &--Submit {
+            width: 100%;
+            font-size: 0.8rem;
+            padding: 2px 4px;
+            margin-top: 4px;
+          }
         }
       }
 
-      .Prayer {
-        background-color: lightgray;
-        margin: 0 auto;
+      .Music-Prayer {
+        &__Title { @include Title-Ribbon; }
+        &__Tag { @include Category-Tag; }
+        width: 100%;
         position: absolute;
           top: 50%;
           left: 50%;
           transform: translateY(-50%) translateX(-50%);
 
-        &--Title {
-          font-size: 0.8rem;
-          margin: 0;
-        }
+        &__Profile {
+          width: 80%;
+          font-size: 0.9rem;
+          margin: 16px auto 0;
+          position: relative;
 
-        &--Date { margin: 0 0 8px; }
+          &--Date {
+            font-size: 0.8rem;
+            text-align: right;
+            position: absolute;
+              right: 0;
+          }
 
-        &--Image {
-          margin: 0 auto 8px;
-          display: block;
+          &--Image {
+            margin: 8px auto;
+            display: block;
+          }
         }
 
         &--Audio {
-          width: 100%;
-          margin: 0 auto;
+          width: 80%;
+          margin: -8px auto 0;
           display: block;
         }
       }
