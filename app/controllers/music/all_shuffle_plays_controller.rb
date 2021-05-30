@@ -3,33 +3,29 @@ class Music::AllShufflePlaysController < ApplicationController
 
   def index
     if request.fullpath.include? 'all_mp3-shuffle'
-      @music = MixmachineMp3Djmix.readonly.sample
+      @music = MixmachineDjmix.readonly.sample
       while session[:already_play].include?(@music.id) do
-        @music = MixmachineMp3Djmix.readonly.sample
+        @music = MixmachineDjmix.readonly.sample
       end
 
       session[:already_play].unshift @music.id
-      session[:already_play].delete_at(3)
-      redirect_to(action: 'show', id: @music.id, category: @music.category.name)
+      session[:already_play].delete_at(5)
+      redirect_to(action: 'show', id: @music.id, category: 'MP3')
     elsif request.fullpath.include? 'all_flac-shuffle'
-      @music = MixmachineFlacDjmix.readonly.sample
+      @music = MixmachineDjmix.readonly.sample
       while session[:already_play].include?(@music.id) do
-        @music = MixmachineFlacDjmix.readonly.sample
+        @music = MixmachineDjmix.readonly.sample
       end
 
       session[:already_play].unshift @music.id
-      session[:already_play].delete_at(3)
-      redirect_to(action: 'show', id: @music.id, category: @music.category.name)
+      session[:already_play].delete_at(5)
+      redirect_to(action: 'show', id: @music.id, category: 'FLAC')
     end
 
 
   end
 
   def show
-    if params[:category] == 'MIX MACHINE（MP3）'
-      @music = MixmachineMp3Djmix.readonly.select(:id, :name, :title, :s3_key, :release_date).find(params[:id])
-    elsif params[:category] == 'MIX MACHINE（FLAC）'
-      @music = MixmachineFlacDjmix.readonly.select(:id, :name, :title, :s3_key, :release_date).find(params[:id])
-    end
+    @music = MixmachineDjmix.readonly.find(params[:id])
   end
 end
