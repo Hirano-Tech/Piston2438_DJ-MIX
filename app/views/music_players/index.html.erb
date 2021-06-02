@@ -7,13 +7,15 @@
 
     <div class='Mix-Machine__Form'>
       <%= form_with url: music_players_path, method: 'POST', local: true do |form| %>
-        <%= form.radio_button :category, 'MP3', class: 'form-check-input', id: 'Mobile_MP3' %>
+        <%= form.select :play_method, [['01. 全曲 シャッフル再生', '01'], ['02. シャッフル再生（過去 2週間分）', '02']], prompt: '再生方法を選択してください。' %><br />
+
+        <%= form.radio_button :category, 'MP3', checked: true, class: 'form-check-input', id: 'Mobile_MP3' %>
         <%= form.label :category, 'モバイルデータ通信（MP3）', class: 'form-check-label', for: 'Mobile_MP3' %><br />
 
         <%= form.radio_button :category, 'FLAC', class: 'form-check-input', id: 'High-Quality_FLAC' %>
         <%= form.label :category, 'ロスレスオーディオ（FLAC）', class: 'form-check-label', for: 'High-Quality_FLAC' %><br />
 
-        <%= form.submit '音楽を再生する', class: 'Mix-Machine__Form--Submit btn btn-outline-primary' %>
+        <%= form.submit '再生を開始する♪', class: 'Mix-Machine__Form--Submit btn btn-outline-primary' %>
       <% end %>
     </div>
   </div>
