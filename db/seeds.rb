@@ -1,8 +1,8 @@
 # ↓ User モデル テストデータ ↓
-User.create(
-  email: Rails.application.credentials.User[:Mail],
-  password: Rails.application.credentials.User[:Password]
-)
+# User.create(
+#   email: Rails.application.credentials.User[:Mail],
+#   password: Rails.application.credentials.User[:Password]
+# )
 # ↑ User モデル テストデータ ↑
 
 [
@@ -26,7 +26,11 @@ User.create(
   [210517, 'MIX MACHINE〈 2021年 05月 17日 月 〉', '邦楽も洋楽もなんでもござれMIX!!', '2021-05-17'],
   [210518, 'MIX MACHINE〈 2021年 05月 18日 火 〉', '今日はおしゃれソングMIX!!!!', '2021-05-18'],
   [210519, 'MIX MACHINE〈 2021年 05月 19日 水 〉', '星野源さん新垣結衣さん結婚おめでとうMIX!!!!!', '2021-05-19'],
-  [210520, 'MIX MACHINE〈 2021年 05月 20日 木 〉', '今日は80年代ディスコ風でお届けMIX!!', '2021-05-20']
+  [210520, 'MIX MACHINE〈 2021年 05月 20日 木 〉', '今日は80年代ディスコ風でお届けMIX!!', '2021-05-20'],
+  [210524, 'MIX MACHINE〈 2021年 05月 24日 月 〉', 'スぺシャルゲストの呼び込み君だよMIX!!', '2021-05-24'],
+  [210525, 'MIX MACHINE〈 2021年 05月 25日 火 〉', 'トホホな気持ちを吹き飛ばせMIX!!!!!', '2021-05-25'],
+  [210526, 'MIX MACHINE〈 2021年 05月 26日 水 〉', '初音ちゃんが踊るよMIX!!!!!', '2021-05-26'],
+  [210527, 'MIX MACHINE〈 2021年 05月 27日 木 〉', '5月の雨心地がいいぜMIX!!', '2021-05-27']
 ].each do |id, name, title, release_date|
   MixmachineDjmix.create({id: id, name: name, title: title, release_date: release_date})
 end
@@ -52,7 +56,11 @@ end
   [210517, 'GROOVE LINE〈 2021年 05月 17日 月 〉', '2021-05-17'],
   [210518, 'GROOVE LINE〈 2021年 05月 18日 火 〉', '2021-05-18'],
   [210519, 'GROOVE LINE〈 2021年 05月 19日 水 〉', '2021-05-19'],
-  [210520, 'GROOVE LINE〈 2021年 05月 20日 木 〉', '2021-05-20']
+  [210520, 'GROOVE LINE〈 2021年 05月 20日 木 〉', '2021-05-20'],
+  [210524, 'GROOVE LINE〈 2021年 05月 24日 月 〉', '2021-05-24'],
+  [210525, 'GROOVE LINE〈 2021年 05月 25日 火 〉', '2021-05-25'],
+  [210526, 'GROOVE LINE〈 2021年 05月 26日 水 〉', '2021-05-26'],
+  [210527, 'GROOVE LINE〈 2021年 05月 27日 木 〉', '2021-05-27']
 ].each do |id, name, release_date|
   GroovelineProgram.create({id: id, name: name, release_date: release_date})
 end
