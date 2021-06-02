@@ -21,8 +21,6 @@ class Music::AllShufflePlaysController < ApplicationController
       session[:already_play].delete_at(5)
       redirect_to(action: 'show', id: @music.id, category: 'FLAC')
     end
-
-
   end
 
   def show
