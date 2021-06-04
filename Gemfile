@@ -57,6 +57,21 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
     # https://rubygems.org/gems/byebug | RubyGems
     # Ruby のためのデバッガ
+
+  gem 'capistrano', '~> 3.16'
+    # https://rubygems.org/gems/capistrano | RubyGems
+
+  gem 'capistrano-rbenv', '~> 2.2'
+    # https://rubygems.org/gems/capistrano-rbenv | RubyGems
+
+  gem 'capistrano-bundler', '~> 2.0', '>= 2.0.1'
+    # https://rubygems.org/gems/capistrano-bundler | RubyGems
+
+  gem 'capistrano-rails', '~> 1.6', '>= 1.6.1'
+    # https://rubygems.org/gems/capistrano-rails | RubyGems
+
+  gem 'capistrano3-unicorn', '~> 0.2.1'
+    # https://rubygems.org/gems/capistrano3-unicorn | RubyGems
 end
 
 group :development do
