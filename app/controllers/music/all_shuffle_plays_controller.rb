@@ -9,7 +9,7 @@ class Music::AllShufflePlaysController < ApplicationController
       end
 
       session[:already_play].unshift @music.id
-      session[:already_play].delete_at(5)
+      session[:already_play].delete_at(20)
       redirect_to(action: 'show', id: @music.id, category: 'MP3')
     elsif request.fullpath.include? 'all_flac-shuffle'
       @music = MixmachineDjmix.readonly.sample

@@ -9,9 +9,9 @@ class MusicPlayersController < ApplicationController
       render action: :index
     elsif params.permit(:play_method)[:play_method] == '01'
       @music = MixmachineDjmix.readonly.sample
-        session[:already_play] = Array.new(5)
+        session[:already_play] = Array.new(20)
         session[:already_play].unshift @music.id
-        session[:already_play].delete_at(5)
+        session[:already_play].delete_at(20)
       redirect_to music_all_shuffle_play_path(id: @music.id, category: params.permit(:category)[:category])
     elsif params.permit(:play_method)[:play_method] == '02'
       @musics = MixmachineDjmix.readonly.select(:id).order(release_date: :DESC).limit(8).shuffle
