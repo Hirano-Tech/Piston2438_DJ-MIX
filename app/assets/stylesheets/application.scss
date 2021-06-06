@@ -5,22 +5,18 @@ body {
   color: #333333;
   font-family: 'Sawarabi Mincho', sans-serif;
   font-size: 16px;
+  display: flex;
+    align-items: center;
 
   a {
+    &:hover { color: #333333; }
     color: #333333;
     text-decoration: none;
-
-    &:hover {
-      color: #333333;
-      text-decoration: underline;
-    }
   }
 
   @mixin Title-Ribbon {
-    width: 75%;
-    font-size: 1.0rem;
+    font-size: 1.5rem;
     text-align: center;
-    margin: 0 auto;
     position: relative;
 
     &:before {
@@ -78,11 +74,12 @@ body {
   }
 
   @mixin Category-Tag {
+    a:hover { text-decoration: underline; }
     background: #ffcc99;
     height: 0;
-    font-size: 0.8rem;
+    font-size: 1.0rem;
     padding: 4px 8px 20px 12px;
-    margin: 18px 0 0 52px;
+    margin: 8px 0 0 20px;
     display: inline-block;
     position: relative;
 
@@ -106,6 +103,37 @@ body {
         left: -3px;
     }
   }
+
+
+  #Contents {
+    max-width: 540px;
+    height: 80vh;
+    margin-top: 10vh;
+
+    #Top-Page {
+      width: 80%;
+      margin: 0 auto;
+
+      .Mix-Machine {
+        &__Title { @include Title-Ribbon; }
+        &__Tag { @include Category-Tag; }
+
+        &__Start {
+          width: 90%;
+          font-size: 1.25rem;
+          margin: 8px auto 0;
+
+          &--Submit {
+            width: 100%;
+            padding: 2px 4px;
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+  }
+
+
 
   #Outer-Box {
     height: 100vh;

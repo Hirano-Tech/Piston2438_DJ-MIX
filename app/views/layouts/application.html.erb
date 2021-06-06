@@ -12,7 +12,13 @@
   </head>
 
   <body>
-    <section id='Outer-Box' class='container'>
+      <section id='Contents' class='container-fluid'>
+        <%= yield %>
+      </section>
+
+
+
+    <!-- <section id='Outer-Box' class='container'>
       <header>
         <% if user_signed_in? %>
           <% if request.fullpath.include? '/music/all_shuffle_plays' %>
@@ -30,6 +36,6 @@
       </header>
 
       <%= yield %>
-    </section>
+    </section> -->
   </body>
 </html>
