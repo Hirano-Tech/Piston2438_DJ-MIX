@@ -1,4 +1,26 @@
-<section id='Contents' class='container'>
+<section id='Top-Page'>
+  <h1 class='Mix-Machine__Title'>
+    <span>MIX MACHINE</span>
+  </h1>
+  <h2 class='Mix-Machine__Tag'><%= link_to 'J-WAVE', 'https://www.j-wave.co.jp', target: '_blank' %></h2>
+
+  <%= form_with url: music_players_path, method: 'POST', class: 'Mix-Machine__Start', local: true do |form| %>
+    <%= form.select :play_method, [
+      ['01. 全曲 シャッフル再生', '01'],
+      ['02. シャッフル再生（過去 2週間分）', '02']
+    ], prompt: '再生方法を選択してください。' %><br />
+
+    <%= form.radio_button :category, 'MP3', checked: true, class: 'form-check-input', id: 'Mobile_MP3' %>
+    <%= form.label :category, 'モバイルデータ通信（MP3）', class: 'form-check-label', for: 'Mobile_MP3' %><br />
+
+    <%= form.radio_button :category, 'FLAC', class: 'form-check-input', id: 'High-Quality_FLAC' %>
+    <%= form.label :category, 'ロスレスオーディオ（FLAC）', class: 'form-check-label', for: 'High-Quality_FLAC' %><br />
+
+    <%= form.submit '再生を開始する♪', class: 'Mix-Machine__Start--Submit btn btn-outline-primary' %>
+  <% end %>
+</section>
+
+<!-- <section id='Contents' class='container'>
   <div class='Mix-Machine'>
     <h1 class='Mix-Machine__Title'>
       <span>MIX MACHINE</span>
@@ -6,17 +28,17 @@
     <h2 class='Mix-Machine__Tag'><%= link_to 'J-WAVE', 'https://www.j-wave.co.jp', target: '_blank' %></h2>
 
     <div class='Mix-Machine__Form'>
-      <%= form_with url: music_players_path, method: 'POST', local: true do |form| %>
-        <%= form.select :play_method, [['01. 全曲 シャッフル再生', '01'], ['02. シャッフル再生（過去 2週間分）', '02']], prompt: '再生方法を選択してください。' %><br />
+      <%#= form_with url: music_players_path, method: 'POST', local: true do |form| %>
+        <%#= form.select :play_method, [['01. 全曲 シャッフル再生', '01'], ['02. シャッフル再生（過去 2週間分）', '02']], prompt: '再生方法を選択してください。' %><br />
 
-        <%= form.radio_button :category, 'MP3', checked: true, class: 'form-check-input', id: 'Mobile_MP3' %>
-        <%= form.label :category, 'モバイルデータ通信（MP3）', class: 'form-check-label', for: 'Mobile_MP3' %><br />
+        <%#= form.radio_button :category, 'MP3', checked: true, class: 'form-check-input', id: 'Mobile_MP3' %>
+        <%#= form.label :category, 'モバイルデータ通信（MP3）', class: 'form-check-label', for: 'Mobile_MP3' %><br />
 
-        <%= form.radio_button :category, 'FLAC', class: 'form-check-input', id: 'High-Quality_FLAC' %>
-        <%= form.label :category, 'ロスレスオーディオ（FLAC）', class: 'form-check-label', for: 'High-Quality_FLAC' %><br />
+        <%#= form.radio_button :category, 'FLAC', class: 'form-check-input', id: 'High-Quality_FLAC' %>
+        <%#= form.label :category, 'ロスレスオーディオ（FLAC）', class: 'form-check-label', for: 'High-Quality_FLAC' %><br />
 
-        <%= form.submit '再生を開始する♪', class: 'Mix-Machine__Form--Submit btn btn-outline-primary' %>
-      <% end %>
+        <%#= form.submit '再生を開始する♪', class: 'Mix-Machine__Form--Submit btn btn-outline-primary' %>
+      <%# end %>
     </div>
   </div>
 </section>
