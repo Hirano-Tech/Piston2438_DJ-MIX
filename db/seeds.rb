@@ -208,7 +208,7 @@ end
   ["L'ARC EN CIEL", 1951],
   ['BEATLES', 1951],
   ['ウルフルズ', 1951],
-  ['RAY PARKER JR.', 1951]
+  ['RAY PARKER JR.', 1951],
 
   ['平井大', 1953],
   ["FAT LARRY'S BAND", 1953],
