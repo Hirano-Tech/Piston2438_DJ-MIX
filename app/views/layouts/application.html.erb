@@ -15,6 +15,29 @@
       <section id='Contents' class='container-fluid'>
         <%= yield %>
       </section>
+      <footer class='container-fluid'>
+        <%= link_to root_path, class: 'Footer-Menu btn btn-outline-dark' do %>
+          <div>
+            <i class='fas fa-home'></i><br />
+            <span class='Footer-Menu--Text'>ホーム</span>
+          </div>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'Footer-Menu btn btn-outline-dark' do %>
+            <div>
+              <i class='fas fa-sign-out-alt'></i><br />
+              <span class='Footer-Menu--Text'>ログアウト</span>
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: 'Footer-Menu btn btn-outline-dark' do %>
+            <div>
+              <i class='fas fa-sign-in-alt'></i><br />
+              <span class='Footer-Menu--Text'>ログイン</span>
+            </div>
+          <% end %>
+        <% end %>
+      </footer>
 
 
 
@@ -36,6 +59,6 @@
       </header>
 
       <%= yield %>
-    </section> -->
+    </section>
   </body>
 </html>

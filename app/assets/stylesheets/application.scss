@@ -1,12 +1,102 @@
 @import 'bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+@mixin Title-Ribbon {
+  font-size: 1.5rem;
+  text-align: center;
+  position: relative;
+
+  &:before {
+    content: '';
+    border: 1em solid #ffffcc;
+    border-left-width: 15px;
+    border-left-color: transparent;
+    z-index: 0;
+    display: block;
+    position: absolute;
+      left: -21px;
+      bottom: -10px;
+  }
+
+  &:after {
+    content: '';
+    border: 1em solid #ffffcc;
+    border-right-width: 15px;
+    border-right-color: transparent;
+    z-index: 0;
+    display: block;
+    position: absolute;
+      right: -21px;
+      bottom: -10px;
+  }
+
+  span {
+    background-color: #ffffcc;
+    padding: 8px 0px;
+    z-index: 1;
+    display: block;
+    position: relative;
+
+    &:before {
+      content: '';
+      border-style: solid;
+      border-width: 10px 0 0 10px;
+      border-color: darken(#ffffcc, 25%) transparent transparent transparent;
+      display: block;
+      position: absolute;
+        bottom: -10px;
+    }
+
+    &:after {
+      content: '';
+      border-style: solid;
+      border-width: 10px 10px 0 0;
+      border-color: darken(#ffffcc, 25%) transparent transparent transparent;
+      display: block;
+      position: absolute;
+        right: 0;
+        bottom: -10px;
+    }
+  }
+}
+
+@mixin Category-Tag {
+  a:hover { text-decoration: underline; }
+  background: #ffcc99;
+  height: 0;
+  font-size: 1.0rem;
+  padding: 4px 8px 20px 12px;
+  margin: 8px 0 0 20px;
+  display: inline-block;
+  position: relative;
+
+  &:before {
+    content: '';
+    border-style: solid;
+    border-width: 8px 12px 8px 0;
+    border-color: transparent #ffcc99 transparent transparent;
+    position: absolute;
+      left: -12px;
+  }
+
+  &:after {
+    content: '';
+    background: #ffffff;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+      top: calc(50% - 3px);
+      left: -3px;
+  }
+}
 
 body {
   color: #333333;
-  font-family: 'Sawarabi Mincho', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
-  display: flex;
-    align-items: center;
 
   a {
     &:hover { color: #333333; }
@@ -14,101 +104,11 @@ body {
     text-decoration: none;
   }
 
-  @mixin Title-Ribbon {
-    font-size: 1.5rem;
-    text-align: center;
-    position: relative;
-
-    &:before {
-      content: '';
-      border: 1em solid #ffffcc;
-      border-left-width: 15px;
-      border-left-color: transparent;
-      z-index: 0;
-      display: block;
-      position: absolute;
-        left: -21px;
-        bottom: -10px;
-    }
-
-    &:after {
-      content: '';
-      border: 1em solid #ffffcc;
-      border-right-width: 15px;
-      border-right-color: transparent;
-      z-index: 0;
-      display: block;
-      position: absolute;
-        right: -21px;
-        bottom: -10px;
-    }
-
-    span {
-      background-color: #ffffcc;
-      padding: 8px 0px;
-      z-index: 1;
-      display: block;
-      position: relative;
-
-      &:before {
-        content: '';
-        border-style: solid;
-        border-width: 10px 0 0 10px;
-        border-color: darken(#ffffcc, 25%) transparent transparent transparent;
-        display: block;
-        position: absolute;
-          bottom: -10px;
-      }
-
-      &:after {
-        content: '';
-        border-style: solid;
-        border-width: 10px 10px 0 0;
-        border-color: darken(#ffffcc, 25%) transparent transparent transparent;
-        display: block;
-        position: absolute;
-          right: 0;
-          bottom: -10px;
-      }
-    }
-  }
-
-  @mixin Category-Tag {
-    a:hover { text-decoration: underline; }
-    background: #ffcc99;
-    height: 0;
-    font-size: 1.0rem;
-    padding: 4px 8px 20px 12px;
-    margin: 8px 0 0 20px;
-    display: inline-block;
-    position: relative;
-
-    &:before {
-      content: '';
-      border-style: solid;
-      border-width: 8px 12px 8px 0;
-      border-color: transparent #ffcc99 transparent transparent;
-      position: absolute;
-        left: -12px;
-    }
-
-    &:after {
-      content: '';
-      background: #ffffff;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      position: absolute;
-        top: calc(50% - 3px);
-        left: -3px;
-    }
-  }
-
-
   #Contents {
     max-width: 540px;
-    height: 80vh;
-    margin-top: 10vh;
+    height: calc(100vh - 16vh);
+    position: absolute;
+      bottom: 16px;
 
     #Top-Page {
       width: 80%;
@@ -120,17 +120,65 @@ body {
 
         &__Start {
           width: 90%;
-          font-size: 1.25rem;
+          font-size: 1.1rem;
           margin: 8px auto 0;
 
           #play_method {
             width: 100%;
+            margin-bottom: 8px;
           }
 
+          &--Text { font-size: 1.0rem; }
           &--Submit {
             width: 100%;
             padding: 2px 4px;
             margin-top: 8px;
+          }
+        }
+      }
+    }
+
+    .MIX-Play {
+      width: 80%;
+      position: absolute;
+        left: 50%;
+        bottom: 8vh;
+        transform: translateX(-50%);
+
+      &--Title {
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+
+      &--Date {
+        font-size: 0.9rem;
+        text-align: right;
+        margin: 0;
+      }
+
+      &--Audio {
+        width: 100%;
+        margin: 8px 0 16px;
+      }
+
+      .Next {
+        &__Title {
+          font-size: 0.8rem;
+
+          &--BigText {
+            color: #ff0000;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 0.3em;
+          }
+        }
+
+        &__Mix {
+          font-size: 0.8rem;
+
+          span {
+            font-weight: normal;
+            margin-right: 4px;
           }
         }
       }
@@ -239,6 +287,27 @@ body {
         padding: 2px 4px;
         margin: 4px 0 0 20px;
       }
+    }
+  }
+
+  footer {
+    height: 8vh;
+    position: absolute;
+      bottom: 0;
+    display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+    .Footer-Menu {
+      &--Text { font-size: 0.7rem; }
+      width: 50%;
+      height: 100%;
+      font-size: 1.2rem;
+      line-height: 0.8em;
+      padding: 0;
+      display: flex;
+        justify-content: center;
+        align-items: center;
     }
   }
 }

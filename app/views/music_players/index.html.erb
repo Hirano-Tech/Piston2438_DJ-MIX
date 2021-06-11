@@ -10,13 +10,13 @@
       ['02. シャッフル再生（最新 2週間分）', '02'],
       ['03. ピストン西沢 Non-STOP Driving MIX！', '03'],
       ['04. おとなのアンパンマン DJ MIX！', '04'],
-    ], prompt: '再生方法を選択してください。' %><br />
+    ], prompt: '未選択（再生方法）' %><br />
 
     <%= form.radio_button :category, 'MP3', checked: true, class: 'form-check-input', id: 'Mobile_MP3' %>
-    <%= form.label :category, 'モバイルデータ通信（MP3）', class: 'form-check-label', for: 'Mobile_MP3' %><br />
+    <%= form.label :category, 'モバイルデータ通信（MP3）', class: 'Mix-Machine__Start--Text form-check-label', for: 'Mobile_MP3' %><br />
 
     <%= form.radio_button :category, 'FLAC', class: 'form-check-input', id: 'High-Quality_FLAC' %>
-    <%= form.label :category, 'ロスレスオーディオ（FLAC）', class: 'form-check-label', for: 'High-Quality_FLAC' %><br />
+    <%= form.label :category, 'ロスレスオーディオ（FLAC）', class: 'Mix-Machine__Start--Text form-check-label', for: 'High-Quality_FLAC' %><br />
 
     <%= form.submit '再生を開始する♪', class: 'Mix-Machine__Start--Submit btn btn-outline-primary' %>
   <% end %>
