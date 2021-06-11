@@ -34,6 +34,10 @@ gem 'bootstrap', '~> 5.0.1'
   # https://rubygems.org/gems/bootstrap | RubyGems
   # レスポンシブでモバイルファーストなウェブプロジェクトを開発するための、HTML，CSS，JavaScriptフレームワークです。
 
+gem 'font-awesome-sass', '~> 5.15', '>= 5.15.1'
+  # https://rubygems.org/gems/font-awesome-sass | RubyGems
+  # Ruby on Rails で Font Awesome を使用するための Ruby Gems
+
 gem 'webpacker', '~> 5.0'
   # https://rubygems.org/gems/webpacker | RubyGems
   # Ruby on Rails の JavaScript モジュール
