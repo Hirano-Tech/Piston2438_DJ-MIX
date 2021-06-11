@@ -1,20 +1,22 @@
-<section id='Contents' class='container'>
-  <div class='Music-Prayer'>
-    <h1 class='Music-Prayer__Title'>
-      <span>MIX MACHINE</span>
-    </h1>
-    <h2 class='Mix-Machine__Tag'><%= link_to 'J-WAVE', 'https://www.j-wave.co.jp', target: '_blank' %></h2>
-
-    <p class='Music-Prayer__Profile'>
-      ● <%= @music.title %><br />
-      <span class='Music-Prayer__Profile--Date'><%= @music.release_date.strftime('%Y年%m月%d日 %A') %></span><br />
-      <%= image_tag 'https://due0xnee3ffkt.cloudfront.net/Images/GROOVE-LINE.webp', width: '75%', class: 'Music-Prayer__Profile--Image' %>
-    </p>
+<section class='MIX-Play card'>
+  <%= image_tag 'https://due0xnee3ffkt.cloudfront.net/Images/GROOVE-LINE.webp', width: '75%', alt: '【J-WAVE】GROOVE LINE', class: 'card-img-top' %>
+  <div class='card-body'>
+    <h1 class='MIX-Play--Title card-title'><%= @music.title %></h1>
+    <p class='MIX-Play--Date card-text'><%= @music.release_date.strftime('%Y年%m月%d日 %A') %></p>
 
     <% if params[:category] == 'MP3' %>
-      <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（MP3）/#{@music.name}.mp3", controls: true, autoplay: true, class: 'Music-Prayer--Audio', onended: "location.href='/music/mp3-shuffle'; ") %>
+      <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（MP3）/#{@music.name}.mp3", controls: true, autoplay: false, class: 'MIX-Play--Audio', onended: "location.href='/music/mp3-next'; ") %>
     <% elsif params[:category] == 'FLAC' %>
-      <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（FLAC）/#{@music.name}.flac", controls: true, autoplay: true, class: 'Music-Prayer--Audio', onended: "location.href='/music/flac-shuffle'; ") %>
+      <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（FLAC）/#{@music.name}.flac", controls: true, autoplay: false, class: 'MIX-Play--Audio', onended: "location.href='/music/flac-next'; ") %>
+    <% end %>
+
+    <% unless session[:playlists].blank? %>
+      <div class='Next'>
+        <h2 class='Next__Title'>
+          終了まで、残り<span class='Next__Title--BigText'><%= session[:playlists].length %>曲</span>です。
+        </h2>
+        <p class='Next__Mix'><span class='badge rounded-pill bg-secondary'>次曲</span><%= @next_music[:title] %></p>
+      </div>
     <% end %>
   </div>
 </section>
