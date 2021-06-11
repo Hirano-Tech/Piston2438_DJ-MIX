@@ -1,4 +1,6 @@
 class Music::PlaylistThemesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     if session[:playlists].length == 0
       redirect_to root_path
