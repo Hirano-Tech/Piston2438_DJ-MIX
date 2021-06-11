@@ -3,17 +3,20 @@ class Music::PlaylistThemesController < ApplicationController
     if session[:playlists].length == 0
       redirect_to root_path
     else
-      if request.fullpath.include? 'mp3-shuffle'
-        redirect_to(action: 'show', id: session[:playlists].shift, category: 'MP3', theme: 'アンパンマン')
-      elsif request.fullpath.include? 'flac-shuffle'
-        redirect_to(action: 'show', id: session[:playlists].shift, category: 'FLAC', theme: 'アンパンマン')
+      if request.fullpath.include? 'mp3-next'
+        redirect_to(action: 'show', id: session[:playlists].shift, category: 'MP3', theme: session[:theme])
+      elsif request.fullpath.include? 'flac-next'
+        redirect_to(action: 'show', id: session[:playlists].shift, category: 'FLAC', theme: session[:theme])
       end
     end
   end
 
   def show
-    if params[:theme] == 'アンパンマン' || params[:theme] == 'お気に入り'
-      @music = MixmachineDjmix.readonly.find(params[:id])
+    @music = MixmachineDjmix.select(:id, :name, :title, :release_date).readonly.find(params[:id])
+
+    unless session[:playlists].blank?
+      session[:playlists].shuffle
+      @next_music = MixmachineDjmix.select(:id, :title, :release_date).readonly.find(session[:playlists][0])
     end
   end
 end
