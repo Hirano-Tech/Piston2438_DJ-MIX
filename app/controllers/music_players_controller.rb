@@ -37,7 +37,7 @@ class MusicPlayersController < ApplicationController
     end
 
     session[:playlists].uniq!
-    session[:playlists].shuffle
+    session[:playlists].shuffle!
     redirect_to music_playlist_theme_path(id: session[:playlists].shift, category: music_params[:category], theme: session[:theme])
   end
 
