@@ -9,29 +9,47 @@ class MusicPlayersController < ApplicationController
 
     if music_params[:play_method].blank?
       render action: :index
+
     elsif music_params[:play_method] == '01'
       session[:theme] = '全曲シャッフル'
 
       MixmachineDjmix.select(:id).readonly.each do |djmix|
         session[:playlists] << djmix[:id]
       end
+
     elsif music_params[:play_method] == '02'
       session[:theme] = '最新版'
 
       MixmachineDjmix.order(release_date: :DESC).limit(8).select(:id).readonly.each do |djmix|
         session[:playlists] << djmix[:id]
       end
-    elsif music_params[:play_method] == '03'
-      session[:theme] = 'お気に入り'
 
-      favorite = ['ドリーミング', '松本梨香', '呼び込み君', '打首獄門同好会', 'さりけい', 'BLACK BISCUITS', '北島三郎', '氷川きよし', 'NIZIU', 'TWICE', 'SMAP','嵐']
-      SongList.where(artist: favorite).select(:id, :mixmachine_djmix_id).readonly.each do |djmix|
-        session[:playlists] << djmix[:mixmachine_djmix_id]
-      end
-    elsif music_params[:play_method] == '04'
+    elsif music_params[:play_method] == '03'
       session[:theme] = 'アンパンマン'
 
       SongList.where(artist: 'ドリーミング').select(:id, :mixmachine_djmix_id).readonly.each do |djmix|
+        session[:playlists] << djmix[:mixmachine_djmix_id]
+      end
+
+    elsif music_params[:play_method] == '04'
+      session[:theme] = 'アニメソング'
+
+      SongList.where(artist: ['ドリーミング', 'MAO', '松本梨香', '井上あずみ', '高橋洋子']).select(:id, :mixmachine_djmix_id).readonly.each do |djmix|
+        session[:playlists] << djmix[:mixmachine_djmix_id]
+      end
+
+    elsif music_params[:play_method] == '05'
+      session[:theme] = 'お気に入り'
+
+      favorite = [
+        'ドリーミング', 'MAO', '松本梨香', '井上あずみ', '高橋洋子',
+        'SMAP', '嵐',
+        'TWICE', 'NIZIU',
+        'あいみょん', 'BLACK BISCUITS', '打首獄門同好会', '北島三郎', '氷川きよし',
+        'DANCE MAN', 'さりけい', '呼び込み君'
+      ]
+
+      SongList.where(artist: favorite).select(:id, :mixmachine_djmix_id).readonly.each do |djmix|
         session[:playlists] << djmix[:mixmachine_djmix_id]
       end
     end
