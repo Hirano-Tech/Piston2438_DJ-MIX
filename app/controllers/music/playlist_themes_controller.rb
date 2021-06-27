@@ -14,11 +14,11 @@ class Music::PlaylistThemesController < ApplicationController
   end
 
   def show
-    @music = MixmachineDjmix.select(:id, :name, :title, :release_date).readonly.find(params[:id])
+    @music = Piston2438Mix.readonly.find(params[:id])
 
     unless session[:playlists].blank?
       session[:playlists].shuffle!
-      @next_music = MixmachineDjmix.select(:id, :title, :release_date).readonly.find(session[:playlists][0])
+      @next_music = Piston2438Mix.select(:id, :title, :release_date).readonly.find(session[:playlists][0])
     end
   end
 end
