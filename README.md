@@ -54,6 +54,15 @@ RUN bundle install
 |    title     |   VARCHAR(255)    |  NO  |     |  NULL   |                |
 | release_date |       DATE        |  NO  |     |  NULL   |                |
 
+```SQL
+$mysql> CREATE TABLE IF NOT EXISTS 'テーブル名'(
+  id SMALLINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  release_date DATE NOT NULL
+) CHARACTER SET utf8mb4;
+```
+
 ## 🎶　⑤ 音楽を再生するための処理の流れ
 
 ```Ruby
