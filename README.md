@@ -103,7 +103,6 @@ session[:'セッション名'].shuffle!
 
 ## 👨🏻‍💻 ⑧ 開発者プロフィール
 
-- Wantedly：[Wantedly](https://www.wantedly.com/id/Hirano_Tech)（要 ログイン）
 - GitHub：[GitHub](https://github.com/Hirano-Tech)
   - [現在 個人開発している別のアプリケーション | GitHub](https://github.com/Hirano-Tech/Personal_Coordinator)
 - Twitter：[@Hirano_Tech](https://twitter.com/Hirano_Tech)
