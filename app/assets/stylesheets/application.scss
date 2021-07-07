@@ -3,99 +3,9 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
-@mixin Title-Ribbon {
-  font-size: 1.5rem;
-  text-align: center;
-  position: relative;
-
-  &:before {
-    content: '';
-    border: 1em solid #ffffcc;
-    border-left-width: 15px;
-    border-left-color: transparent;
-    z-index: 0;
-    display: block;
-    position: absolute;
-      left: -21px;
-      bottom: -10px;
-  }
-
-  &:after {
-    content: '';
-    border: 1em solid #ffffcc;
-    border-right-width: 15px;
-    border-right-color: transparent;
-    z-index: 0;
-    display: block;
-    position: absolute;
-      right: -21px;
-      bottom: -10px;
-  }
-
-  span {
-    background-color: #ffffcc;
-    padding: 8px 0px;
-    z-index: 1;
-    display: block;
-    position: relative;
-
-    &:before {
-      content: '';
-      border-style: solid;
-      border-width: 10px 0 0 10px;
-      border-color: darken(#ffffcc, 25%) transparent transparent transparent;
-      display: block;
-      position: absolute;
-        bottom: -10px;
-    }
-
-    &:after {
-      content: '';
-      border-style: solid;
-      border-width: 10px 10px 0 0;
-      border-color: darken(#ffffcc, 25%) transparent transparent transparent;
-      display: block;
-      position: absolute;
-        right: 0;
-        bottom: -10px;
-    }
-  }
-}
-
-@mixin Category-Tag {
-  a:hover { text-decoration: underline; }
-  background: #ffcc99;
-  height: 0;
-  font-size: 1.0rem;
-  padding: 4px 8px 20px 12px;
-  margin: 8px 0 0 20px;
-  display: inline-block;
-  position: relative;
-
-  &:before {
-    content: '';
-    border-style: solid;
-    border-width: 8px 12px 8px 0;
-    border-color: transparent #ffcc99 transparent transparent;
-    position: absolute;
-      left: -12px;
-  }
-
-  &:after {
-    content: '';
-    background: #ffffff;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    position: absolute;
-      top: calc(50% - 3px);
-      left: -3px;
-  }
-}
-
-body {
-  color: #333333;
+* {
   font-family: 'Noto Sans JP', sans-serif;
+  color: #333333;
   font-size: 16px;
 
   a {
@@ -105,204 +15,101 @@ body {
   }
 
   #Contents {
-    max-width: 540px;
-    height: calc(100vh - 16vh);
+    width: 100vw;
+      max-width: 540px;
     position: absolute;
-      bottom: 16px;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
 
     #Top-Page {
-      width: 80%;
-      margin: 0 auto;
+      .Piston2438_DJMIX {
+        width: 80%;
+        margin: 0 auto;
 
-      .Mix-Machine {
-        &__Title { @include Title-Ribbon; }
-        &__Tag { @include Category-Tag; }
-
-        &__Start {
-          width: 90%;
+        &--Title {
           font-size: 1.1rem;
-          margin: 8px auto 0;
+          font-weight: bold;
+        }
 
-          #play_method {
-            width: 100%;
+        &__Form {
+          &--Title {
+            font-size: 0.9rem;
+            font-weight: bold;
+          }
+
+          &__Select {
+            &--Text { font-size: 0.9rem; }
+            font-size: 0.9rem;
+            padding-left: 0.5em;
             margin-bottom: 8px;
           }
 
-          &--Text { font-size: 1.0rem; }
           &--Submit {
             width: 100%;
             padding: 2px 4px;
-            margin-top: 8px;
           }
         }
       }
     }
 
-    .MIX-Play {
-      width: 80%;
-      position: absolute;
-        left: 50%;
-        bottom: 8vh;
-        transform: translateX(-50%);
+    #Player-Page {
+      .Piston2438_DJ-Player {
+        width: 80%;
+        margin: 0 auto;
 
-      &--Title {
-        font-size: 1.1rem;
-        font-weight: bold;
-      }
-
-      &--Date {
-        font-size: 0.9rem;
-        text-align: right;
-        margin: 0;
-      }
-
-      &--Audio {
-        width: 100%;
-        margin: 8px 0 16px;
-      }
-
-      .Next {
-        &__Title {
+        .Category {
           font-size: 0.8rem;
+          font-weight: normal;
+        }
 
-          &--BigText {
+        &--Date { text-align: right; }
+        &--Audio { width: 100%; }
+        &--Title {
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+
+        &--Next-Length {
+          font-size: 1.0rem;
+
+          span {
             color: #ff0000;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             margin: 0 0.3em;
           }
         }
 
-        &__Mix {
+        &--Next-Title {
           font-size: 0.8rem;
 
           span {
+            font-size: 0.7rem;
             font-weight: normal;
-            margin-right: 4px;
+            margin-right: 0.5em;
           }
         }
-      }
-    }
-  }
-
-
-
-  #Outer-Box {
-    height: 100vh;
-    position: relative;
-
-    header {
-      height: 48px;
-      position: relative;
-
-      .Login_Btn {
-        width: 6.0em;
-        padding: 2px 4px;
-        display: block;
-        position: absolute;
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
-      }
-    }
-
-    #Contents {
-      height: calc(100vh - 48px);
-      position: relative;
-
-      .Mix-Machine {
-        &__Title { @include Title-Ribbon; }
-        &__Tag { @include Category-Tag; }
-        width: 100%;
-        position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateY(-50%) translateX(-50%);
-
-        &__Form {
-          width: 75%;
-          font-size: 0.8rem;
-          margin: 16px auto 0;
-
-          &--Submit {
-            width: 100%;
-            font-size: 0.8rem;
-            padding: 2px 4px;
-            margin-top: 4px;
-          }
-        }
-      }
-
-      .Music-Prayer {
-        &__Title { @include Title-Ribbon; }
-        &__Tag { @include Category-Tag; }
-        width: 100%;
-        position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateY(-50%) translateX(-50%);
-
-        &__Profile {
-          width: 80%;
-          font-size: 0.9rem;
-          margin: 16px auto 0;
-          position: relative;
-
-          &--Date {
-            font-size: 0.8rem;
-            text-align: right;
-            position: absolute;
-              right: 0;
-          }
-
-          &--Image {
-            margin: 8px auto;
-            display: block;
-          }
-        }
-
-        &--Audio {
-          width: 80%;
-          margin: -8px auto 0;
-          display: block;
-        }
-      }
-    }
-
-    .Login_From {
-      position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateY(-50%) translateX(-50%);
-
-      &--Input { margin: 0 0 8px 20px; }
-      &--Check-Box { margin: 4px 0 0 20px; }
-      &--Label {
-        font-size: 0.9rem;
-        margin: 0;
-      }
-
-      &--Submit {
-        width: 100%;
-        padding: 2px 4px;
-        margin: 4px 0 0 20px;
       }
     }
   }
 
   footer {
-    height: 8vh;
+    width: 100vw;
+      max-width: 540px;
+    height: 7%;
     position: absolute;
+      left: 50%;
       bottom: 0;
+      transform: translateX(-50%);
     display: flex;
       flex-direction: row;
-      justify-content: space-around;
 
     .Footer-Menu {
       &--Text { font-size: 0.7rem; }
       width: 50%;
       height: 100%;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       line-height: 0.8em;
       padding: 0;
       display: flex;

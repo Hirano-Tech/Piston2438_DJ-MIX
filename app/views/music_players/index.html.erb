@@ -1,21 +1,35 @@
+<% content_for(:title, 'ホーム') %>
+
 <section id='Top-Page'>
-  <h1 class='Mix-Machine__Title'>
-    <span>MIX MACHINE</span>
-  </h1>
-  <h2 class='Mix-Machine__Tag'><%= link_to 'J-WAVE', 'https://www.j-wave.co.jp', target: '_blank' %></h2>
+  <div class='Piston2438_DJMIX card'>
+    <%= image_tag 'https://due0xnee3ffkt.cloudfront.net/Images/GROOVE-LINE.webp', alt: '【J-WAVE】GROOVE LINE', class: 'card-img-top' %>
+    <div class='card-body'>
+      <h2 class='Piston2438_DJMIX--Title card-title'>ピストン西沢 Non-STOP DJ MIX♪</h2>
 
-  <%= form_with url: music_players_path, method: 'POST', class: 'Mix-Machine__Start', local: true do |form| %>
-    <%= form.select :play_method, [
-      ['01. 全曲 シャッフル再生', '01'],
-      ['02. シャッフル再生（最新 2週間分）', '02'],
-    ] %><br />
+      <%= form_with url: music_players_path, method: 'POST', class: 'Piston2438_DJMIX__Form', local: true do |form| %>
+        <h3 class='Piston2438_DJMIX__Form--Title card-title'>● 再生形式を選択してください。</h3>
+        <div class='Piston2438_DJMIX__Form__Select'>
+          <%= form.radio_button :category, 'MP3', checked: true, class: 'form-check-input', id: 'Mobile_MP3' %>
+          <%= form.label :category, 'モバイルデータ通信（MP3）', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: 'Mobile_MP3' %><br />
+          <%= form.radio_button :category, 'FLAC', class: 'form-check-input', id: 'High-Quality_FLAC' %>
+          <%= form.label :category, 'ロスレスオーディオ（FLAC）', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: 'High-Quality_FLAC' %><br />
+        </div>
 
-    <%= form.radio_button :category, 'MP3', checked: true, class: 'form-check-input', id: 'Mobile_MP3' %>
-    <%= form.label :category, 'モバイルデータ通信（MP3）', class: 'Mix-Machine__Start--Text form-check-label', for: 'Mobile_MP3' %><br />
+        <h3 class='Piston2438_DJMIX__Form--Title card-title'>● 再生方法を選択してください。</h3>
+        <div class='Piston2438_DJMIX__Form__Select'>
+          <%= form.radio_button :play_method, '全曲シャッフル再生', checked: true, class: 'form-check-input', id: 'All-Shuffle_Songs' %>
+          <%= form.label :play_method, '全曲シャッフル再生', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: 'All-Shuffle_Songs' %><br />
 
-    <%= form.radio_button :category, 'FLAC', class: 'form-check-input', id: 'High-Quality_FLAC' %>
-    <%= form.label :category, 'ロスレスオーディオ（FLAC）', class: 'Mix-Machine__Start--Text form-check-label', for: 'High-Quality_FLAC' %><br />
+          <%= form.radio_button :play_method, '2021-06', class: 'form-check-input', id: '2021-06' %>
+          <%= form.label :play_method, '2021年6月 放送回', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: '2021-06' %><br />
+          <%= form.radio_button :play_method, '2021-05', class: 'form-check-input', id: '2021-05' %>
+          <%= form.label :play_method, '2021年5月 放送回', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: '2021-05' %><br />
+          <%= form.radio_button :play_method, '2021-04', class: 'form-check-input', id: '2021-04' %>
+          <%= form.label :play_method, '2021年4月 放送回', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: '2021-04' %><br />
+        </div>
 
-    <%= form.submit '再生を開始する♪', class: 'Mix-Machine__Start--Submit btn btn-outline-primary' %>
-  <% end %>
+        <%= form.submit "Let's Drop IT♪", class: 'Piston2438_DJMIX__Form--Submit btn btn-outline-primary' %>
+      <% end %>
+    </div>
+  </div>
 </section>

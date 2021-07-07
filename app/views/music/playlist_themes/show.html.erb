@@ -1,22 +1,28 @@
-<section class='MIX-Play card'>
-  <%= image_tag 'https://due0xnee3ffkt.cloudfront.net/Images/GROOVE-LINE.webp', width: '75%', alt: '【J-WAVE】GROOVE LINE', class: 'card-img-top' %>
-  <div class='card-body'>
-    <h1 class='MIX-Play--Title card-title'><%= @music.title %></h1>
-    <p class='MIX-Play--Date card-text'><%= @music.release_date.strftime('%Y年%m月%d日 %A') %></p>
+<% content_for(:title, @music.title) %>
 
-    <% if params[:category] == 'MP3' %>
-      <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（MP3）/#{@music.name}.mp3", controls: true, autoplay: true, class: 'MIX-Play--Audio', onended: "location.href='/music/mp3-next';") %>
-    <% elsif params[:category] == 'FLAC' %>
-      <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（FLAC）/#{@music.name}.flac", controls: true, autoplay: true, class: 'MIX-Play--Audio', onended: "location.href='/music/flac-next';") %>
-    <% end %>
+<section id='Player-Page'>
+  <div class='Piston2438_DJ-Player card'>
+    <%= image_tag 'https://due0xnee3ffkt.cloudfront.net/Images/GROOVE-LINE.webp', alt: '【J-WAVE】GROOVE LINE', class: 'card-img-top' %>
+    <p class='Category badge rounded-pill bg-secondary'><%= @category %></p>
+
+    <div class='card-body'>
+      <h2 class='Piston2438_DJ-Player--Title card-title'><%= @music.title %></h2>
+      <p class='Piston2438_DJ-Player--Date card-text'><%= @music.release_date.strftime('%Y年%m月%d日 %A') %></p>
+
+      <% if params[:category] == 'MP3' %>
+        <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（MP3）/#{@music.name}.mp3", controls: true, autoplay: false, class: 'Piston2438_DJ-Player--Audio', onended: "location.href='/music/mp3-next';") %>
+      <% elsif params[:category] == 'FLAC' %>
+        <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（FLAC）/#{@music.name}.flac", controls: true, autoplay: false, class: 'Piston2438_DJ-Player--Audio', onended: "location.href='/music/flac-next';") %>
+      <% end %>
 
     <% unless session[:playlists].blank? %>
-      <div class='Next'>
-        <h2 class='Next__Title'>
-          終了まで、残り<span class='Next__Title--BigText'><%= session[:playlists].length %>曲</span>です。
-        </h2>
-        <p class='Next__Mix'><span class='badge rounded-pill bg-secondary'>次曲</span><%= @next_music[:title] %></p>
-      </div>
+      <h3 class='Piston2438_DJ-Player--Next-Length card-title'>
+        終了まで、残り<span><%= session[:playlists].length %></span>曲です。
+      </h3>
+      <p class='Piston2438_DJ-Player--Next-Title'>
+        <span class='badge rounded-pill bg-secondary'>次曲</span><%= @next_music[:title] %>
+      </p>
     <% end %>
+    </div>
   </div>
 </section>
