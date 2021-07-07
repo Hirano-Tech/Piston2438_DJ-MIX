@@ -10,9 +10,9 @@
       <p class='Piston2438_DJ-Player--Date card-text'><%= @music.release_date.strftime('%Y年%m月%d日 %A') %></p>
 
       <% if params[:category] == 'MP3' %>
-        <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（MP3）/#{@music.name}.mp3", controls: true, autoplay: false, class: 'Piston2438_DJ-Player--Audio', onended: "location.href='/music/mp3-next';") %>
+        <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（MP3）/#{@music.name}.mp3", controls: true, autoplay: true, class: 'Piston2438_DJ-Player--Audio', onended: "location.href='/music/mp3-next';") %>
       <% elsif params[:category] == 'FLAC' %>
-        <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（FLAC）/#{@music.name}.flac", controls: true, autoplay: false, class: 'Piston2438_DJ-Player--Audio', onended: "location.href='/music/flac-next';") %>
+        <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（FLAC）/#{@music.name}.flac", controls: true, autoplay: true, class: 'Piston2438_DJ-Player--Audio', onended: "location.href='/music/flac-next';") %>
       <% end %>
 
     <% unless session[:playlists].blank? %>
