@@ -99,9 +99,19 @@ session[:'セッション名'].shuffle!
   # 最後に、配列の中身を破壊的にシャッフルして並び順を入れ替えています。
 ```
 
+## 🖥　⑥ 実際の画面 サンプル画像
+
+##### ● トップページ サンプル画像
+
+<img src='https://due0xnee3ffkt.cloudfront.net/Images/Player_トップ画面.webp' alt='【画像】トップページ サンプル画像' title='トップページ サンプル画像' width='25%' />
+
+##### ● プレイヤー画面 サンプル画像
+
+<img src='https://due0xnee3ffkt.cloudfront.net/Images/Player_プレイヤー画面.webp' alt='【画像】プレイヤー画面 サンプル画像' title='【画像】プレイヤー画面 サンプル画像' width='25%' />
+
 ---
 
-## 👨🏻‍💻 ⑧ 開発者プロフィール
+## 👨🏻‍💻 ⑦ 開発者プロフィール
 
 - GitHub：[GitHub](https://github.com/Hirano-Tech)
   - [現在 個人開発している別のアプリケーション | GitHub](https://github.com/Hirano-Tech/Personal_Coordinator)
