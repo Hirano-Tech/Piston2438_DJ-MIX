@@ -13,6 +13,11 @@ class MusicPlayersController < ApplicationController
         session[:playlists] << djmix[:id]
       end
 
+    elsif music_params[:play_method] == 'anime'
+      DjmixList.find_by_sql("SELECT id, djmix_id FROM music_lists WHERE artist IN ('ドリーミング', 'MAO', '井上あずみ', 'FOORIN', '松本梨香', '高橋洋子');").each do |djmix|
+        session[:playlists] << djmix[:djmix_id]
+      end
+
     elsif music_params[:play_method] == '2021-06'
       Piston2438Mix.select(:id).readonly.where(release_date: Date.parse('2021-06-01').beginning_of_day..Date.parse('2021-06-30').end_of_day).each do |djmix|
         session[:playlists] << djmix[:id]
