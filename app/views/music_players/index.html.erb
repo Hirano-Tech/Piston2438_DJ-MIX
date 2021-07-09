@@ -19,6 +19,8 @@
         <div class='Piston2438_DJMIX__Form__Select'>
           <%= form.radio_button :play_method, '全曲シャッフル再生', checked: true, class: 'form-check-input', id: 'All-Shuffle_Songs' %>
           <%= form.label :play_method, '全曲シャッフル再生', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: 'All-Shuffle_Songs' %><br />
+          <%= form.radio_button :play_method, 'anime', class: 'form-check-input', id: 'Anime_Songs' %>
+          <%= form.label :play_method, 'アニメソング 特集', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: 'Anime_Songs' %><br />
 
           <%= form.radio_button :play_method, '2021-06', class: 'form-check-input', id: '2021-06' %>
           <%= form.label :play_method, '2021年6月 放送回', class: 'Piston2438_DJMIX__Form__Select--Text form-check-label', for: '2021-06' %><br />

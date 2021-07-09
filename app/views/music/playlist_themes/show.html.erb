@@ -15,14 +15,14 @@
         <%= audio_tag("https://due0xnee3ffkt.cloudfront.net/MIX MACHINE（FLAC）/#{@music.name}.flac", controls: true, autoplay: true, class: 'Piston2438_DJ-Player--Audio', onended: "location.href='/music/flac-next';") %>
       <% end %>
 
-    <% unless session[:playlists].blank? %>
-      <h3 class='Piston2438_DJ-Player--Next-Length card-title'>
-        終了まで、残り<span><%= session[:playlists].length %></span>曲です。
-      </h3>
-      <p class='Piston2438_DJ-Player--Next-Title'>
-        <span class='badge rounded-pill bg-secondary'>次曲</span><%= @next_music[:title] %>
-      </p>
-    <% end %>
+      <% unless session[:playlists].blank? %>
+        <h3 class='Piston2438_DJ-Player--Next-Length card-title'>
+          終了まで、残り<span><%= session[:playlists].length %></span>曲です。
+        </h3>
+        <p class='Piston2438_DJ-Player--Next-Title'>
+          <span class='badge rounded-pill bg-secondary'>次曲</span><%= @next_music[:title] %>
+        </p>
+      <% end %>
     </div>
   </div>
 </section>
