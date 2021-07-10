@@ -56,7 +56,7 @@ RUN bundle install
 
 ## 🗄　④ データベース設計
 
-### ● ピストン西沢 Non-STOP DJMIX ♪ の各音楽ファイルを管理するテーブル
+### ● ピストン西沢 Non-STOP DJMIX ♪ の各音楽ファイルを管理するテーブル（全レコード数：99件）
 
 |     Field    |       Type        | Null | Key | Default |     Extra      |
 |:------------:|:-----------------:|:----:|:---:|:-------:|:--------------:|
@@ -73,6 +73,29 @@ $mysql> CREATE TABLE IF NOT EXISTS 'テーブル名'(
   release_date DATE NOT NULL
 ) CHARACTER SET utf8mb4;
 ```
+
+### ● DJ MIX で使用された曲目を管理するテーブル（全レコード数：546件）
+
+|   Field  |       Type        | Null | Key | Default |     Extra      |
+|:--------:|:-----------------:|:----:|:---:|:-------:|:--------------:|
+|    id    |  BIGINT UNSIGNED  |  NO  | PRI |  NULL   | auto_increment |
+|   name   |   VARCHAR(255)    |  NO  |     |  NULL   |                |
+|  artist  |   VARCHAR(255)    |  NO  |     |  NULL   |                |
+| djmix_id | SMALLINT UNSIGNED |  NO  | MUL |  NULL   |                |
+
+```SQL
+$mysql> CREATE TABLE IF NOT EXISTS 'テーブル名'(
+  id BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  artist VARCHAR(255) NOT NULL,
+  djmix_id SMALLINT UNSIGNED NOT NULL,
+
+  FOREIGN KEY (djmix_id) REFERENCES piston2438_djmixes(id)
+) CHARACTER SET utf8mb4;
+```
+
+> ###### 🔗　参考資料
+> > ● [DJ MIX曲目 一覧データ Seeds ファイル](https://github.com/Hirano-Tech/Seeding-Vault/blob/master/Ruby_Piston2438_DJ-Music-Lists.rb)
 
 ## 🎶　⑤ 音楽を再生するための処理の流れ
 
