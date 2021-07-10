@@ -122,7 +122,40 @@ session[:'セッション名'].shuffle!
   # 最後に、配列の中身を破壊的にシャッフルして並び順を入れ替えています。
 ```
 
-## 🖥　⑥ 実際の画面 サンプル画像
+## 🎶　⑥ 作成したプレイリスト一覧
+
+#### ● ピストン西沢氏 渾身のキッズソング特集！（取得するレコード数：22件）
+
+ピストン西沢の DJ と言えば、**おとなのアンパンマン！** が流れた放送回のみをシャッフル再生するプレイリスト！
+
+| 曲名 | アーティスト |
+|:---:|:---:|
+| アンパンマンのマーチ | ドリーミング |
+| めざせポケモンマスター | 松本梨香 |
+| ようかい体操第一 ICONA POP | DREAM5 |
+| 残酷な天使のテーゼ | 高橋洋子 |
+| 紅蓮華 | LISA |
+| PPAP | ピコ太郎 |
+| PIKACHU | OLIVER HELDENS & MR.BELT & WEZOL |
+| パプリカ | FOORIN |
+| 「ドラゴンクエスト?」より序曲OVERTURE | SOUNDTRACK |
+| 呼び込み君「NO.4」 | 呼び込み君 |
+
+```SQL
+$mysql> SELECT DISTINCT djmix_id FROM 'テーブル名'
+  WHERE name LIKE 'アンパンマン%'
+  OR name LIKE '%ポケモンマスター'
+  OR name LIKE 'ようかい体操第一%'
+  OR name='残酷な天使のテーゼ'
+  OR name='紅蓮華'
+  OR name='PPAP'
+  OR name='PIKACHU'
+  OR name='パプリカ'
+  OR name LIKE '%ドラゴンクエスト%'
+  OR name LIKE '呼び込み君%';
+```
+
+## 🖥　⑦ 実際の画面 サンプル画像
 
 ##### ● トップページ サンプル画像
 
@@ -134,7 +167,7 @@ session[:'セッション名'].shuffle!
 
 ---
 
-## 👨🏻‍💻 ⑦ 開発者プロフィール
+## 👨🏻‍💻 ⑧ 開発者プロフィール
 
 - GitHub：[GitHub](https://github.com/Hirano-Tech)
   - [現在 個人開発している別のアプリケーション | GitHub](https://github.com/Hirano-Tech/Personal_Coordinator)
