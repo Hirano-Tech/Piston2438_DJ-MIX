@@ -14,7 +14,20 @@ class MusicPlayersController < ApplicationController
       end
 
     elsif music_params[:play_method] == 'anime'
-      DjmixList.find_by_sql("SELECT id, djmix_id FROM music_lists WHERE artist IN ('ドリーミング', 'MAO', '井上あずみ', 'FOORIN', '松本梨香', '高橋洋子');").each do |djmix|
+      DjmixList.find_by_sql("
+        SELECT DISTINCT djmix_id FROM music_lists
+          WHERE name LIKE 'アンパンマン%'
+          OR name LIKE '%ポケモンマスター'
+          OR name LIKE 'ようかい体操第一%'
+          OR name='残酷な天使のテーゼ'
+          OR name='にゃん酷なにゃんこのテーゼ'
+          OR name='紅蓮華'
+          OR name='PPAP'
+          OR name='PIKACHU'
+          OR name='パプリカ'
+          OR name LIKE '%ドラゴンクエスト%'
+          OR name LIKE '呼び込み君%'
+      ").each do |djmix|
         session[:playlists] << djmix[:djmix_id]
       end
 
