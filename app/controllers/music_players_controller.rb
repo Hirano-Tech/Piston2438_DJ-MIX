@@ -17,11 +17,13 @@ class MusicPlayersController < ApplicationController
       DjmixList.find_by_sql("
         SELECT DISTINCT djmix_id FROM music_lists
           WHERE name LIKE 'アンパンマン%'
+          OR name LIKE '%ドラえもん'
           OR name LIKE '%ポケモンマスター'
           OR name LIKE 'ようかい体操第一%'
           OR name='残酷な天使のテーゼ'
           OR name='にゃん酷なにゃんこのテーゼ'
           OR name='紅蓮華'
+          OR name LIKE 'さんぽ%'
           OR name='PPAP'
           OR name='PIKACHU'
           OR name='パプリカ'
@@ -31,18 +33,22 @@ class MusicPlayersController < ApplicationController
         session[:playlists] << djmix[:djmix_id]
       end
 
+    elsif music_params[:play_method] == 'idol'
+      DjmixList.find_by_sql("
+        SELECT DISTINCT djmix_id FROM music_lists
+          WHERE artist='SMAP'
+          OR artist='嵐'
+          OR artist='AKB48'
+          OR artist='TWICE'
+          OR artist='NIZIU'
+      ").each do |djmix|
+        session[:playlists] << djmix[:djmix_id]
+      end
+
     elsif music_params[:play_method] == '2021-06'
-      Piston2438Mix.select(:id).readonly.where(release_date: Date.parse('2021-06-01').beginning_of_day..Date.parse('2021-06-30').end_of_day).each do |djmix|
-        session[:playlists] << djmix[:id]
-      end
-
-    elsif music_params[:play_method] == '2021-05'
-      Piston2438Mix.select(:id).readonly.where(release_date: Date.parse('2021-05-06').beginning_of_day..Date.parse('2021-05-31').end_of_day).each do |djmix|
-        session[:playlists] << djmix[:id]
-      end
-
-    elsif music_params[:play_method] == '2021-04'
-      Piston2438Mix.select(:id).readonly.where(release_date: Date.parse('2021-04-12').beginning_of_day..Date.parse('2021-04-22').end_of_day).each do |djmix|
+      Piston2438Mix.find_by_sql("
+        SELECT id FROM piston2438_djmixes WHERE release_date >= '2021-06-01'
+      ").each do |djmix|
         session[:playlists] << djmix[:id]
       end
     end
