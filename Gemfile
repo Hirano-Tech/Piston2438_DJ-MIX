@@ -19,7 +19,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
   # https://rubygems.org/gems/bootsnap | RubyGems
   # Ruby on Rails アプリケーションの起動を高速化する。
 
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.6'
   # https://rubygems.org/gems/puma | RubyGems
   # Ruby アプリケーションのために開発環境と本番環境で使用できる Web サーバ
 
